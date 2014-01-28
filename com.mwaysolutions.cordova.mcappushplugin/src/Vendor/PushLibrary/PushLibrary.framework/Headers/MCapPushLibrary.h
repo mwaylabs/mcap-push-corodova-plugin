@@ -48,6 +48,7 @@ typedef enum {
     NSString* apnToken;
     NSString* deviceUuid;
     NSString *baseURL;
+    NSString *type;
     
     NSOperationQueue *operationQueue;
 }

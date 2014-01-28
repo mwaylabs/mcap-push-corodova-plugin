@@ -50,6 +50,12 @@
         id alertArg = [options objectForKey:@"alert"];
         id apiKey = [options objectForKey:@"apiKey"];
         id baseURL = [options objectForKey:@"baseURL"];
+        id tags = [options objectForKey:@"tags"];
+        id language = [options objectForKey:@"language"];
+        id country = [options objectForKey: @"country"];
+        id attributes = [options objectForKey:@"attributes"];
+        id user = [options objectForKey:@"user"];
+        id badgeCount = [options objectForKey:@"badgeCount"];
         
         if ([badgeArg isKindOfClass:[NSString class]])
         {
@@ -76,7 +82,7 @@
             notificationTypes |= UIRemoteNotificationTypeAlert;
         
         if (notificationTypes == UIRemoteNotificationTypeNone)
-            NSLog(@"PushPlugin.register: Push notification type is set to none");
+            NSLog(@"MCapPushPlugin.register: Push notification type is set to none");
         
         [MCapPushLibrary sharedInstance].remoteNotificationTypes = notificationTypes;
         
@@ -89,6 +95,36 @@
         if (baseURL != nil && [baseURL isKindOfClass:[NSString class]])
         {
             [MCapPushLibrary sharedInstance].baseURL = baseURL;
+        }
+        
+        if (tags != nil && [tags isKindOfClass: [NSArray class]])
+        {
+            [MCapPushLibrary sharedInstance].tags = tags;
+        }
+        
+        if (language != nil && [language isKindOfClass:[NSString class]])
+        {
+            [MCapPushLibrary sharedInstance].language = language;
+        }
+        
+        if (country != nil && [country isKindOfClass:[NSString class]])
+        {
+            [MCapPushLibrary sharedInstance].country = country;
+        }
+        
+        if (attributes != nil && [tags isKindOfClass: [NSDictionary class]])
+        {
+            [MCapPushLibrary sharedInstance].attributes = attributes;
+        }
+        
+        if (user != nil && [user isKindOfClass: [NSString class]])
+        {
+            [MCapPushLibrary sharedInstance].user = user;
+        }
+        
+        if (badgeCount != nil)
+        {
+            [MCapPushLibrary sharedInstance].badgeCount = [badgeCount intValue];
         }
         
         self.callback = [options objectForKey:@"ecb"];
