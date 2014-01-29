@@ -5,10 +5,6 @@
 
     <name>MCapPushPlugin</name>
 	<author>Marcus Koehler</author>
-	
-	<js-module src="www/MCapPushNotification.js" name="MCapPushNotification">
-   	<clobbers target="MCapPushNotification" />
-	</js-module>
 
 	<engines>
 		<engine name="cordova" version=">=3.0.0" />
@@ -23,6 +19,10 @@
 			</feature>
 		</config-file>
         
+		<js-module src="www/MCapPushNotification.js" name="MCapPushNotification">
+   			<clobbers target="navigator.MCapPushNotification" />
+		</js-module>
+
         <source-file src="src/AppDelegate+notification.m" />
 		<source-file src="src/MCapPushPlugin.m" />
         
