@@ -31,7 +31,7 @@
 		<header-file src="src/MCapPushPlugin.h" />
 
         <framework src="src/Vendor/PushLibrary/PushLibrary.framework" custom="true" />
-        <framework src="src/Vendor/PushLibrary/SystemConfiguration.framework" custom="true" />
+        <framework src="/System/Library/SystemConfiguration.framework" custom="false" />
 
 	</platform>
 </plugin>
